@@ -3,6 +3,109 @@
 
 <head>
 	<style>
+
+
+
+
+
+
+		* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		.heading {
 			padding: 2rem 1rem;
 			margin-bottom: 0em;
@@ -13,6 +116,36 @@
 			width: 100%!important;
 			height: 300px;
 		}
+		.nav-item {
+			border-right: #f0f2 1px solid;
+		}
+
+
+
+
+		#form-inside {
+			border: #f1f1 solid 1px;
+			padding: 10px;
+		}
+
+
+
+
+		.wrapper {
+			background:black;
+			padding-bottom: 20px;
+			color:white;
+
+		}
+		.wrapper a {
+			color:white;
+			text-decoration: solid;
+		}
+		#credits {
+			text-align: center;
+			color:red;
+
+		}
 	</style>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -21,7 +154,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
 	<title>Welcome</title>
 </head>
 
@@ -56,7 +190,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
+							Admission
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a>
@@ -68,7 +202,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
+							About
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a>
@@ -80,7 +214,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
+							Admission
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a>
@@ -92,7 +226,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
+							Achievements
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a>
@@ -104,7 +238,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
+							Resources
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Action</a>
@@ -113,18 +247,7 @@
 							<a class="dropdown-item" href="#">Something else here</a>
 						</div>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Dropdown
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
+					
 			</div>
 		</nav>
 		<div class="events my-4">
@@ -151,7 +274,222 @@
 
 			</div>
 		</div>
+		
 	</div>
+	<hr>
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3 col-md-offset-1">
+			<h1>Calendar</h1>
+
+<div class="month">      
+  <ul>
+    <li class="prev">&#10094;</li>
+    <li class="next">&#10095;</li>
+    <li>
+      August<br>
+      <span style="font-size:18px">2017</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+  <li>Su</li>
+</ul>
+
+<ul class="days">  
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li><span class="active">10</span></li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+  <li>17</li>
+  <li>18</li>
+  <li>19</li>
+  <li>20</li>
+  <li>21</li>
+  <li>22</li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+  <li>27</li>
+  <li>28</li>
+  <li>29</li>
+  <li>30</li>
+  <li>31</li>
+</ul>
+
+<h2>Stacked form</h2>
+  <form id = 'form-inside'>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+    </div>
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+		</div>
+		<div class="col-md-7 col-md-offset-1">
+			<h2>Notification</h2>
+			<P>10<sup>th</sup> Results Date Declared!</P>
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+				  <ul class="navbar-nav">
+					<li class="nav-item active">
+					  <a class="nav-link" href="#">Upcoming News <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#">Upcoming Events</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#">Notices</a>
+					</li>
+					<li class="nav-item">
+					  <a class="nav-link" href="#">Tenders</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Recruitment</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Nirf Ranking</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Nptel</a>
+					  </li>
+				  </ul>
+				</div>
+			  </nav>
+			  <h2>&nbsp;School trending news here</h2>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div id="footer-wrapper" class="wrapper">
+	<div class="container grid-24">
+	  
+	  <div class="grid-inner clearfix">
+		<div id="footer" class="clearfix">
+			<div class="region region-footer">
+  <div id="block-tb-megamenu-menu-secondary-menu" class="block block-tb-megamenu">
+<div class="block-inner clearfix">
+  
+  
+  
+  <div class="block-content clearfix">
+	<div  data-duration="400" data-delay="200" id="tb-megamenu-menu-secondary-menu" class="tb-megamenu tb-megamenu-menu-secondary-menu animate slide">
+	<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar tb-megamenu-button" type="button">
+	<i class="fa fa-reorder"></i>
+  </button>
+  <div class="nav-collapse  always-show">
+  <ul  class="tb-megamenu-nav nav level-0 items-8">
+<li  data-id="636" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="http://www.coepalumni.net"  title="COEP Alumni">
+	  
+Alumni          </a>
+</li>
+
+<li  data-id="630" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/achievements"  title="Achievements">
+	  
+  Achievements          </a>
+</li>
+
+<li  data-id="629" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/campusfestivals"  title="Campus Festivals">
+	  
+  Campus Festivals          </a>
+</li>
+
+<li  data-id="632" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="http://vlab.co.in/"  title="Virtual Labs">
+	  
+  Virtual Labs          </a>
+</li>
+
+<li  data-id="631" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/teqipii"  title="TEQIP - III">
+	  
+  TEQIP - III          </a>
+</li>
+
+<li  data-id="633" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/library"  title="Library">
+	  
+  Library          </a>
+</li>
+
+<li  data-id="628" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/information"  title="Information">
+	  
+  Information          </a>
+</li>
+
+<li  data-id="634" data-level="1" data-type="menu_item" data-class="" data-xicon="" data-caption="" data-alignsub="" data-group="0" data-hidewcol="0" data-hidesub="0" class="tb-megamenu-item level-1 mega">
+<a href="/contactus"  title="Contact Us">
+	  
+  Contact Us          </a>
+</li>
+</ul>
+	</div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+<center><h4>&copy; 2020 COEP. All Rights Reserved. Site Developed By <a href="/webteam">webRV</a></h4></center>
+  <div id="credits">© 2020 All rights reserved</div>
+</div>
+	</body>
+
+
+
+
+
+
+
+
+
+
+
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
