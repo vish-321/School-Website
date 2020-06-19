@@ -3,6 +3,16 @@
 
 <head>
     <style>
+        #middle {
+            background: white;
+            border-radius: 10px;
+            border: 2px #f1f1f1 solid;
+            box-shadow: 30px black inset;
+            padding: 20px;
+            ;
+            margin-bottom: 10px;
+        }
+
         .heading {
             padding: 2rem 1rem;
             margin-bottom: 0em;
@@ -25,9 +35,11 @@
         #form-inside {
             border: #f1f1 solid 1px;
             padding: 10px;
-            border-radius: 2px;
+            padding-bottom: 0px;
+            border-radius: 0px 0px 9px 9px;
 
         }
+
 
 
 
@@ -65,17 +77,33 @@
 
         #nogap {
             margin-bottom: 1px;
-            border-radius: 2px;
+            border-radius: 9px 9px 0px 0px;
+            margin-top: 0px;
+            padding: 5px;
+
         }
-        #nav1 {
-            margin-bottom:-30px;
+
+        .box-1 {
+            border: 1px #c1c1c1 solid;
+            padding: 1rem;
+            width: 245px;
+            margin: 2rem 1rem -1rem 0rem;
+            background: rgb(206, 146, 94);
+            border-radius: 9px;
+
+            text-align: center;
         }
-        #nav2 {
-            margin-bottom:-30px;
+
+        .active {
+            color: red;
         }
-       
-        
-        
+
+        marquee {
+            font-weight: bold;
+            text-shadow: 2px red inset;
+            height: 30px;
+            font-size: 2rem;
+        }
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -89,8 +117,7 @@
     <title>Welcome</title>
 </head>
 
-<body style = 'background: #f1f1f1'>
-    
+<body style='background: #f1f1f1'>
     <div class="container">
         <div class="heading">
             <div class="row">
@@ -115,8 +142,8 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item active ">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
     
                     <li class="nav-item dropdown">
@@ -134,7 +161,7 @@
     
                         </div>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Admission
@@ -176,99 +203,140 @@
     
             </div>
         </nav>
+        <div class="events my-4">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner mb-4">
+                    <div class="carousel-item active">
+                        <img src='award2.jpg' class="d-block w-100" alt="...">
 
 
-
-        <hr>
-
-        <div style="margin-bottom: 10px;" class="row">
-
-            <div class="container">
-                ,
-                <!--	<h2>Notification</h2>
-				<P>10<sup>th</sup> Results Date Declared!</P>  -->
-                <nav id='nav2' class="navbar navbar-expand-lg navbar-light bg-light">
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Procedures <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="age.html">Age limit</a>
-                            </li>
-
-                        </ul>
                     </div>
-                </nav>
+
+
+                    <div class="carousel-item">
+                        <img src='award4.jpg' class="d-block w-100" alt="...">
+
+                    </div>
+                    <div class="carousel-item">
+                        <img src='award3.jpg' class="d-block w-100" alt="...">
+                    </div>
+                </div>
+
+
 
             </div>
         </div>
 
-    
-        <div>
-            <div style="background: white;" class="jumbotron">
-            
-                    
-                        
-                            <p class="style1" style="text-align: justify">
-                                <strong>1</strong>. Applications for admissions should be made on-line through the
-                                on-line Admissions form available at&nbsp;&nbsp;&nbsp; <a href="http://www.thedeshikendra.org">
-                                    <font color="#010043">www.thebishopsschool.org</font></a>&nbsp;&nbsp;.Please
-                                log on and follow the instructions on-line to fill in the form.
-                            </p>
-                            <p align="left">
-                                <b>2.</b> No admission will be considered until all the requirements are fully met.
-                            </p>
-                            <p align="left">
-                                <b>3.</b> Parents/Guardians must give an undertaking, in writing that they will
-                                abide by the rules and regulations of the School as made from time to time.
-                            </p>
-                            <p align="left">
-                                <b>4.</b> The Principal &amp; Hon.Secretary/HeadMaster does not bind himself to furnish
-                                any reason for rejecting any application.
-                            </p>
-                            <p align="left">
-                                <b>5.</b> The documents should be get verified and submitted as per the Admission
-                                Notice.
-                            </p>
-                            <p align="left">
-                                <b>6.</b> A transfer Certificate from a recognized school will be required when
-                                admission is granted to classes 2 and above.
-                            </p>
-                            <p align="left">
-                                <b>7.</b> If a pupil has come from a different State, the Transfer Certificate must
-                                be countersigned by the appropriate Inspector concerned. Only a Transfer Certificate
-                                from a recognized school is accepted. If a boy has come from a different country,
-                                the Transfer Certificate must be countersigned by the appropriate officer of the
-                                Indian Embassy/Consulate in that country concerned.&nbsp;
-                            </p>
-                            <p align="left">
-                                <b>8.</b> If a Transfer Certificate is delayed as a result of being sent for counter
-                                signature, a provisional certificate from the previous school may be submitted.
-                                Admissions granted will be provisional till a proper Transfer Certificate, duly
-                                signed and stamped by the appropriate authority, is submitted.
-                            </p>
-                            <p align="left">
-                                <b>9.</b> When a child is admitted on a Transfer Certificate he will not be placed
-                                in a class higher than that which the Transfer Certificate shows him to be qualified
-                                in the appropriate month of the particular year. He will not be promoted before
-                                the end of the school year. There can be no relaxing of this Rule, which is a Government
-                                Directive.
-                            </p>
-                            <p align="left">
-                                <b>10.</b> Admission will only be confirmed on payment of one term's fees. This
-                                amount will be credited and adjusted against the first term's bill. The amount is
-                                not refundable if a place accepted is later refused.
-                            </p>
-                        
-                    
-            
+
+        <hr>
+        <div id="middle">
+            <div style="margin-bottom: 10px;" class="row">
+                <div class="col-md-3">
+                    <div class="wrap">
+                        <h2 id='nogap' style="text-align: center; background-color:rgb(128, 12, 12); color: #ffda00;">
+                            Deshikendra Online</h2>
+                        <form id='form-inside' style="background-color: rgb(231, 222, 222);">
+                            <div class="form-group">
+                                <label for="email">Username:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Username"
+                                    name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                    name="pswd">
+                            </div>
+                            <!--  <div class="form-group form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" type="checkbox" name="remember"> Remember me
+						</label>
+					</div>  -->
+
+
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td align="left">
+                                            <a id="lnkHelp" href="javascript:__doPostBack('lnkHelp','')"
+                                                style="font-size:Small;">Help?</a>
+                                        </td>
+                                        <td align="right">
+                                            <a href="../Public/Forgotpassword.aspx" style="font-size: small"
+                                                target="_blank">Forgot
+                                                Password</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div
+                                style="background-color: #d1bf54; display: block;margin-left: -10px; margin-right: -10px; margin-top: 10px;color: white; text-align: center; border-radius: 0px 0px 9px 9px;font-weight: bold	">
+                                For Students &amp; Parents Only
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="box-1">
+                        <label for="btn-1">For Moodle Login</label>
+                        <br>
+                        <button id='btn-1' class="btn btn-sm btn-default">Click Here</button>
+                    </div>
+
+                    <br>
+                    <br>
+                    <iframe style="border: #f2f2f2 solid;"
+                        src="https://calendar.google.com/calendar/embed?src=roshanbangar21%40gmail.com&ctz=Asia%2FKolkata"
+                        style="border: 0" width="255" height="255" frameborder="0" scrolling="no"></iframe>
+                </div>
+                <div class="col-md-8 col-md-offset-1">
+                    ,
+                    <!--	<h2>Notification</h2>
+				<P>10<sup>th</sup> Results Date Declared!</P>  -->
+                    <nav id='nav2' class="navbar navbar-expand-lg navbar-light bg-light">
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="index.html">Notices <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="results.html">Results</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="news.html">News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="location.html">Location</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+
+
+
+                    <p style="margin-top: 20px;">
+                        news here
+                    </p>
+
+                </div>
+            </div>
         </div>
+
 
 
 
