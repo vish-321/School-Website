@@ -12,11 +12,18 @@
 
 
 
+		
 
 
 
-
-
+		#middle {
+			background:white;
+			border-radius: 10px;
+			border: 2px #f1f1f1 solid;
+			box-shadow: 30px black inset;
+			padding: 10px;;
+			margin-bottom : 10px;
+		}
 		.heading {
 			padding: 2rem 1rem;
 			margin-bottom: 0em;
@@ -41,6 +48,13 @@
 			padding: 10px;
 			border-radius: 2px;
 
+		}
+		.wrap {
+			border: #f1f1f1 solid 2px;
+			border-radius: 2px;
+			
+			box-shadow: 20px black;
+			
 		}
 		
 
@@ -78,6 +92,7 @@
 		#nogap {
 			margin-bottom: 1px;
 			border-radius: 2px;
+			margin-top: 0px;
 		}
 		.box-1 {
 			border: 1px #c1c1c1 solid;
@@ -89,6 +104,10 @@
 			text-align:center;
 			border-radius: 2px;
 		}
+		.active {
+			color : red;
+		}
+		
 		
 
 
@@ -218,17 +237,10 @@
 
 
 	<hr>
-	
+	<div id="middle">
 		<div style="margin-bottom: 10px;" class="row">
 			<div class="col-md-3">
-
-
-
-
-
-
-
-
+				<div class="wrap">
 				<h2 id = 'nogap' style="background-color:rgb(201, 57, 57); color: rgb(206, 146, 94);">Deshikendra Online</h2>
 				<form id='form-inside' style="background-color: rgb(231, 222, 222);">
 					<div class="form-group">
@@ -271,6 +283,7 @@
 					</div>
 
 				</form>
+			</div>
 
 				<div class="box-1">
 					<label for="btn-1">For Moodle Login</label>
@@ -278,17 +291,9 @@
 					<button id = 'btn-1' class="btn btn-sm btn-default">Click Here</button>
 				</div>
 
-
 				<br>
 				<br>
 				<iframe style="border: #f2f2f2 solid;" src="https://calendar.google.com/calendar/embed?src=roshanbangar21%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="255" height="255" frameborder="0" scrolling="no"></iframe>
-
-
-
-				
-
-
-
 			</div>
 			<div class="col-md-8 col-md-offset-1">
 			,<!--	<h2>Notification</h2>
@@ -320,6 +325,8 @@
 
 			</div>
 		</div>
+	</div>
+	</div>
 
 	
 
@@ -410,7 +417,7 @@
 		<h4>&copy; 2020 COEP. All Rights Reserved. </h4>
 	</center> -->
 	<div id="credits">© 2020 All rights reserved</div>
-	</div>
+	
 </body>
 
 
