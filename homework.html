@@ -20,7 +20,7 @@
             padding-top: 40px;
             border-collapse: collapse;
             width: 100%;
-            margin-top:125px;
+            margin-top: 125px;
         }
 
         #vtable th {
@@ -132,10 +132,50 @@
         .specialclass p {
             margin-top: 20px;
         }
-        .push :hover {
-			border: 1px  solid #73879C;
-			box-shadow: 0px 0px 4px white inset;
-		}
+
+        .rowh {
+            background-color: thistle;
+        }
+
+
+        .rowh h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            padding-left: 20px;
+            padding-top: 15px;
+            text-align: left;
+
+
+        }
+
+        .rowh h5 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+
+            padding-right: 20px;
+
+            text-align: right;
+        }
+
+        .rowh h4 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            padding-left: 15px;
+            padding-top: 20px;
+            padding-bottom: 0px;
+            padding-right: 10%;
+
+        }
+
+        .rowh p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            padding-left: 15px;
+            padding-top: 0px;
+            padding-bottom: 20px;
+            padding-right: 20%;
+
+        }
     </style>
 </head>
 
@@ -152,7 +192,7 @@
                         <a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
                         <h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
                             Kendra, Latur</h3>
-                            <a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
+                        <a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
                         <a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Info</a>
                         <a id="academicReport" href="report.html" onclick=academic_report()>Academic Report</a>
                         <a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
@@ -171,11 +211,77 @@
 
             </div>
 
-            <div class="specialclass col-md-7">
-                
-              <h1> no record available as of now</h1>
+            <div class="specialclass col-md-9">
+                <center>
+                    <h1 style="font-family: Arial, Helvetica, sans-serif;font-weight: bolder;">
+                        Homework
+                    </h1>
+                </center>
 
-              
+                <div class="rowh ">
+
+
+                    <h3>
+
+                        History
+
+                    </h3>
+
+                    <h5>
+                        Date :5/6/2019
+
+                    </h5>
+                    <h5>
+                        Time : 8.20 pm
+
+                    </h5>
+                    <h4>
+                        Bring Homework notebook writing chapter 5 questions and answers
+
+                    </h4>
+                    <p>
+                        Do subquestions 1,2 , 5 of 1st question . Do all subquestions questions of Q.2 except last one .
+                        Do all remaining Q.3 to Q.5 whole .
+
+                    </p>
+
+
+
+                </div>
+
+                <div class="rowh ">
+
+                    <span>
+                        <h3>
+
+                            History
+
+                        </h3>
+
+                        <h5>
+                            Date :5/6/2019
+
+                        </h5>
+                        <h5>
+                            Time : 8.20 pm
+
+                        </h5>
+                    </span>
+                    <h4>
+                        Bring Homework notebook writing chapter 5 questions and answers
+
+                    </h4>
+                    <p>
+                        Do subquestions 1,2 , 5 of 1st question . Do all subquestions questions of Q.2 except last one .
+                        Do all remaining Q.3 to Q.5 whole .
+
+                    </p>
+
+
+
+                </div>
+
+
 
 
 
@@ -183,7 +289,7 @@
             </div>
 
 
-            
+
 
         </div>
 
@@ -194,7 +300,7 @@
 
     <script>
         document.getElementById('personalInfo').style = 'color: red';
-        feedback();
+        Homework();
         if (screen.width > 720) {
             document.getElementById('opennav').style = 'display: none;';
             document.getElementById('closenav').style = 'display: none;';
@@ -208,6 +314,7 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
         function Homework() {
 			document.getElementById('Homework').style = 'color: red;';
 			document.getElementById('personalInfo').style = 'color: #73879C;';

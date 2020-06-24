@@ -157,6 +157,7 @@
                         <a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
                         <h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
                             Kendra, Latur</h3>
+                            <a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
                         <a class="bordered" id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Info</a>
                         <a class="bordered"  id="academicReport" href="report.html" onclick=academic_report()>Academic Report</a>
                         <a class="bordered"  id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
@@ -602,7 +603,18 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+        function Homework() {
+            document.getElementById('Homework').style = 'color: red;';
+            document.getElementById('personalInfo').style = 'color: #73879C; ';
+            document.getElementById('academicReport').style = 'color: #73879C;';
+            document.getElementById('videoLecture').style = 'color: #73879C;';
+            document.getElementById('feedback').style = 'color: #73879C;';
+
+
+
+        }
         function personal_info() {
+            document.getElementById('Homework').style = 'color: #73879C;';
             document.getElementById('personalInfo').style = 'color: red';
             document.getElementById('academicReport').style = 'color: #73879C;';
             document.getElementById('videoLecture').style = 'color: #73879C;';
@@ -612,6 +624,7 @@
 
         }
         function academic_report() {
+            document.getElementById('Homework').style = 'color: #73879C;';
             document.getElementById('personalInfo').style = 'color: #73879C;';
             document.getElementById('academicReport').style = 'color:red;';
             document.getElementById('videoLecture').style = 'color: #73879C;';
@@ -620,6 +633,7 @@
 
         }
         function video_lecture() {
+            document.getElementById('Homework').style = 'color: #73879C;';
             document.getElementById('personalInfo').style = 'color: #73879C;';
             document.getElementById('videoLecture').style = 'color: red;';
             document.getElementById('academicReport').style = 'color: #73879C;';
@@ -627,6 +641,7 @@
 
         }
         function feedback() {
+            document.getElementById('Homework').style = 'color: #73879C;';
             document.getElementById('personalInfo').style = 'color: #73879C';
             document.getElementById('feedback').style = 'color: red;';
             document.getElementById('academicReport').style = 'color: #73879C';
