@@ -279,6 +279,12 @@
 
         }
         function academic_report() {
+            if(screen.width > 720) {
+				window.open('report.html', 'self');
+			}
+			else {
+				window.open('academicreportmobile.html', 'self');
+			}
             document.getElementById('personalInfo').style = 'color: #73879C;';
             document.getElementById('academicReport').style = 'color:red;';
             document.getElementById('videoLecture').style = 'color: #73879C;';
