@@ -121,7 +121,7 @@
                         <h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
                             Kendra, Latur</h3>
                         <a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Info</a>
-                        <a id="academicReport" href="report.html" onclick=academic_report()>Academic Report</a>
+                        <a id="academicReport" href="#" onclick=academic_report()>Academic Report</a>
                         <a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
                         <a id="feedback" href="feedback.html" onclick=feedback()>Feedback</a>
                     </div>
@@ -140,7 +140,7 @@
 			<div class="col-md-7 specialclass" style="color: #2A3F54;">
 				<h3
 					style="margin-top: 40px;color: #2A3F54; font-weight: bold; font-family:Arial, Helvetica, sans-serif;">
-					Student Info</h3>
+					Student Information</h3>
 				<div
 					style="margin-top: 20px;background-color: white;box-shadow: 0px 0px 3px inset #73879C;border-radius: 5px; padding: 20px;">
 					<h3 style='margin-top: -10px;'>Personal Info</h3>
@@ -276,6 +276,7 @@
 
 
 	<script>
+		personal_info();
 		document.getElementById('personalInfo').style = 'color: red';
 		if (screen.width > 720) {
 			document.getElementById('opennav').style = 'display: none;';
@@ -300,6 +301,12 @@
 
 		}
 		function academic_report() {
+			if(screen.width > 720) {
+				window.open('report.html', 'self');
+			}
+			else {
+				window.open('academicreportmobile.html', 'self');
+			}
 			document.getElementById('personalInfo').style = 'color: #73879C;';
 			document.getElementById('academicReport').style = 'color:red;';
 			document.getElementById('videoLecture').style = 'color: #73879C;';
