@@ -104,8 +104,9 @@
 		.specialclass p {
 			margin-top: 20px;
 		}
+
 		.push :hover {
-			border: 1px  solid #73879C;
+			border: 1px solid #73879C;
 			box-shadow: 0px 0px 4px white inset;
 		}
 	</style>
@@ -119,19 +120,19 @@
 	<div class="container-fluid" style="margin-right:30px;">
 		<div class="row" style="margin-bottom: 20px;">
 			<div class="col-md-3">
-                <div id="mySidenav" class="sidenav">
-                    <div class="push">
-                        <a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
-                        <h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
+				<div id="mySidenav" class="sidenav">
+					<div class="push">
+						<a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
+						<h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
 							Kendra, Latur</h3>
-							<a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
-                        <a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Info</a>
-                        <a id="academicReport" href="#" onclick=academic_report()>Academic Report</a>
-                        <a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
-                        <a id="feedback" href="feedback.html" onclick=feedback()>Feedback</a>
-                    </div>
-                </div>
-                <span id="opennav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+						<a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
+						<a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Information</a>
+						<a id="academicReport" href="#" onclick=academic_report()>Academic Report</a>
+						<a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
+						<a id="feedback" href="feedback.html" onclick=feedback()>Feedback</a>
+					</div>
+				</div>
+				<span id="opennav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 
 
@@ -141,14 +142,14 @@
 
 
 
-            </div>
+			</div>
 			<div class="col-md-7 specialclass" style="color: #2A3F54;">
 				<h3
 					style="margin-top: 40px;color: #2A3F54; font-weight: bold; font-family:Arial, Helvetica, sans-serif;">
 					Student Information</h3>
 				<div
 					style="margin-top: 20px;background-color: white;box-shadow: 0px 0px 3px inset #73879C;border-radius: 5px; padding: 20px;">
-					<h3 style='margin-top: -10px;'>Personal Info</h3>
+					<h3 style='margin-top: -10px;'>Personal Information</h3>
 					<div class="row">
 						<div class="col-md-3 col-md-offset-1">
 							<p>Mis No: 111803040</p>
@@ -177,7 +178,7 @@
 
 				<div
 					style="margin-top: 20px;background-color: white;box-shadow: 0px 0px 3px inset #73879C;border-radius: 5px; padding: 20px;">
-					<h3 style='margin-top: -10px;'>Family Info</h3>
+					<h3 style='margin-top: -10px;'>Family Information</h3>
 
 					<div class="row">
 						<div class="col-md-4 col-md-offset-1">
@@ -224,7 +225,7 @@
 
 				<div
 					style="margin-top: 20px;background-color: white;box-shadow: 0px 0px 3px inset #73879C;border-radius: 5px; padding: 20px;">
-					<h3 style='margin-top: -10px;'>Contact Info</h3>
+					<h3 style='margin-top: -10px;'>Contact Information</h3>
 
 					<div class="row">
 						<div class=" col-md-4 col-md-offset-1">
@@ -263,16 +264,25 @@
 
 			</div>
 			<div class="col-md-2">
-				<div style="margin-top: 49px;">
-					<a href="update.html" style="margin-top: 50px; font-weight: bold">Update Info: </a>
-				</div>
-				<div class="right">
+
+
+
+				<div class="right" style="margin-top: 85px;">
 					<p style="text-align: left; color: #73879C; font-weight: bold;font-size: 1.7rem;" class="m-2">Photo
 					</p>
 					<img src="passport.jpg" class="img-circle" alt="Cinque Terre" width="180" height="180">
 
 					<p style="padding-top: 20px;font-weight: bold;"> Roshan Bangar</p>
 				</div>
+
+				<center>
+					<div class="btn btn-primary" type="button" style="margin-top: 30px;">
+						<a href="update.html" style="margin-top: 50px; font-weight: bold; color:black;">Update
+							Information</a>
+					</div>
+
+				</center>
+
 			</div>
 		</div>
 
@@ -316,8 +326,8 @@
 
 
 		}
-		function academic_report() { 
-			if(screen.width > 720) {
+		function academic_report() {
+			if (screen.width > 720) {
 				window.open('report.html', '_self');
 			}
 			else {
