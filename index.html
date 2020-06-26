@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<style>
 		#notice {
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -160,44 +168,48 @@
 			height: 30px;
 			font-size: 2rem;
 		}
-		.dropdown-menu {
-			height: 0px;
-			transition: height 1s;
-		}
-		.nav-item:hover .dropdown-menu {
-			display: block;
-			background-color: #333;
-			border-left:rgb(128, 12, 12) solid 3px;
-			border-right:rgb(128, 12, 12) solid 3px;
-			border-bottom:rgb(128, 12, 12) solid 3px;
-			height: fit-content;
+		@media only screen and (orientation: landscape) {
+			.dropdown-menu {
+				height: 0px;
+				transition: height 1s;
+			}
+			.nav-item:hover .dropdown-menu {
+				display: block;
+				background-color: #333;
+				border-left:rgb(128, 12, 12) solid 3px;
+				border-right:rgb(128, 12, 12) solid 3px;
+				border-bottom:rgb(128, 12, 12) solid 3px;
+				height: fit-content;
 
-		}
-		
-		.nav-item:hover .dropdown-menu .dropdown-item {
-			color: white;
-			font-weight: bold;
-			padding:20px;
-			border-top: darkred 2px solid;
+			}
 			
+			.nav-item:hover .dropdown-menu .dropdown-item {
+				color: white;
+				font-weight: bold;
+				padding:16px;
+				border-top: darkred 2px solid;
+
+			}
+			.dropdown-item {
+				background:  #333!important;
+			}
+			.dropdown-item:hover {
+				background: black!important;
+			}
+		}
 			
-		}
-		.xxx:focus, .xxx:hover {
-			color: #16181b;
-			text-decoration: none;
-			background-color: black !important;
-			font-weight: bold;
-			border-bottom: black !important;
-		}
+		@media only screen and (orientation: portrait) {
+			.box-1 {
+				width: 100%;
+			}
+			iframe {
+				width: 100%;
+			}
+			
+		  }
 	</style>
 	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
 
 	<title>Welcome</title>
 </head>
@@ -236,24 +248,25 @@
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							About us
 						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item xxx" href="geninfo.html">General information</a>
-							<a class="dropdown-item xxx" href="sctu.html">Uniform and School time</a>
+						<div class="dropdown-menu " aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="geninfo.html">General information</a>
+							<a class="dropdown-item" href="sctu.html">Uniform and School time</a>
 
-							<a class="dropdown-item xxx" href="infra.html">Infrastructure</a>
-							<a class="dropdown-item xxx" href="prmsg.html">Message from principle</a>
+							<a class="dropdown-item" href="infra.html">Infrastructure</a>
+							<a class="dropdown-item" href="prmsg.html">Message from principle</a>
 
 
 						</div>
 					</li>
+					
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Admission
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item xxx" href="procedure.html">Procedure</a>
-							<a class="dropdown-item xxx" href="age.html">Age limit</a>
+							<a class="dropdown-item" href="procedure.html">Procedure</a>
+							<a class="dropdown-item" href="age.html">Age limit</a>
 
 
 						</div>
@@ -264,8 +277,8 @@
 							Achievements
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item xxx" href="academic.html">Academic</a>
-							<a class="dropdown-item xxx" href="others.html">Others</a>
+							<a class="dropdown-item" href="academic.html">Academic</a>
+							<a class="dropdown-item" href="others.html">Others</a>
 
 
 						</div>
@@ -277,11 +290,11 @@
 							Resources
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item xxx" href="lib.html">Library</a>
-							<a class="dropdown-item xxx" href="scilab.html">Science Lab</a>
+							<a class="dropdown-item" href="lib.html">Library</a>
+							<a class="dropdown-item" href="scilab.html">Science Lab</a>
 
-							<a class="dropdown-item xxx" href="complab.html">Computer Lab</a>
-							<a class="dropdown-item xxx" href="hostel.html"> Hostel </a>
+							<a class="dropdown-item" href="complab.html">Computer Lab</a>
+							<a class="dropdown-item" href="hostel.html"> Hostel </a>
 
 						</div>
 					</li>
