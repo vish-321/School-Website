@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	{% block css %}
 	<style>
 		#notice {
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -209,7 +210,9 @@
 			}
 			
 		  }
+
 	</style>
+	{% endblock %}
 	<!-- Required meta tags -->
 	
 
@@ -218,6 +221,7 @@
 
 <body style='background: #f1f1f1'>
 	<div class="container">
+		{% block heading %}
 		<div class="heading">
 			<div class="row">
 				<!-- <div class="col-md-3">
@@ -231,6 +235,8 @@
 
 
 		</div>
+		{% endblock %}
+		{% block navbar %}
 
 		<nav id='nav1' class="navbar navbar-expand-lg navbar-dark	 bg-dark">
 			<!--	<a class="navbar-brand" href="#">Welcome</a>   -->
@@ -252,10 +258,10 @@
 						</a>
 						<div class="dropdown-menu " aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="geninfo">General information</a>
-							<a class="dropdown-item" href="sctu.html">Uniform and School time</a>
+							<a class="dropdown-item" href="sctu">Uniform and School time</a>
 
-							<a class="dropdown-item" href="infra.html">Infrastructure</a>
-							<a class="dropdown-item" href="prmsg.html">Message from principle</a>
+							<a class="dropdown-item" href="infra">Infrastructure</a>
+							<a class="dropdown-item" href="prmsg">Message from principle</a>
 
 
 						</div>
@@ -267,8 +273,8 @@
 							Admission
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="procedure.html">Procedure</a>
-							<a class="dropdown-item" href="age.html">Age limit</a>
+							<a class="dropdown-item" href="procedure">Procedure</a>
+							<a class="dropdown-item" href="age">Age limit</a>
 
 
 						</div>
@@ -279,8 +285,8 @@
 							Achievements
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="academic.html">Academic</a>
-							<a class="dropdown-item" href="others.html">Others</a>
+							<a class="dropdown-item" href="academic">Academic</a>
+							<a class="dropdown-item" href="others">Others</a>
 
 
 						</div>
@@ -292,17 +298,19 @@
 							Resources
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="lib.html">Library</a>
-							<a class="dropdown-item" href="scilab.html">Science Lab</a>
+							<a class="dropdown-item" href="lib">Library</a>
+							<a class="dropdown-item" href="scilab">Science Lab</a>
 
-							<a class="dropdown-item" href="complab.html">Computer Lab</a>
-							<a class="dropdown-item" href="hostel.html"> Hostel </a>
+							<a class="dropdown-item" href="complab">Computer Lab</a>
+							<a class="dropdown-item" href="hostel"> Hostel </a>
 
 						</div>
 					</li>
 
 			</div>
 		</nav>
+
+		{% endblock %}
 		<div class="events my-4">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -476,7 +484,7 @@
 
 
 
-
+		{% block footer %}
 		<div id="ctl00_dvfooter" style="background-color: #333;">
 			<footer>
 				<div class="ft-border-bottom">
@@ -559,6 +567,7 @@
 
 			</footer>
 		</div>
+		{% endblock %}
 	</div>
 
 
