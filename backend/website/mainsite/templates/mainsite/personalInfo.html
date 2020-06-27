@@ -125,11 +125,11 @@
 						<a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
 						<h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
 							Kendra, Latur</h3>
-						<a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
-						<a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Information</a>
-						<a id="academicReport" href="#" onclick=academic_report()>Academic Report</a>
-						<a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
-						<a id="feedback" href="feedback.html" onclick=feedback()>Feedback</a>
+						<a id="Homework" href="{% url 'homework' %}" onclick=Homework()>Homework</a>
+						<a id="personalInfo" href="{% url 'personalInfo' %}" onclick=personal_info()>Personal Information</a>
+						<a id="academicReport" href="{% url 'academic' %}" onclick=academic_report()>Academic Report</a>
+						<a id="videoLecture" href="{% url 'videolecture' %}" onclick=video_lecture()>Video Lectures</a>
+						<a id="feedback" href="{% url 'feedback' %}" onclick=feedback()>Feedback</a>
 					</div>
 				</div>
 				<span id="opennav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -270,14 +270,14 @@
 				<div class="right" style="margin-top: 85px;">
 					<p style="text-align: left; color: #73879C; font-weight: bold;font-size: 1.7rem;" class="m-2">Photo
 					</p>
-					<img src="passport.jpg" class="img-circle" alt="Cinque Terre" width="180" height="180">
+					<img src="/media/images/passport.jpg" class="img-circle" alt="Cinque Terre" width="180" height="180">
 
 					<p style="padding-top: 20px;font-weight: bold;"> Roshan Bangar</p>
 				</div>
 
 				<center>
 					<div class="btn btn-primary" type="button" style="margin-top: 30px;">
-						<a href="update.html" style="margin-top: 50px; font-weight: bold; color:black;">Update
+						<a href="update" style="margin-top: 50px; font-weight: bold; color:black;">Update
 							Information</a>
 					</div>
 
@@ -291,6 +291,13 @@
 
 
 	<script>
+		if (screen.width > 720) {
+			document.getElementById('academicReport').href = '{% url "reportlaptop" %}';
+		}
+		else {
+			document.getElementById('academicReport').href = '{% url "reportmobile" %}';
+						
+		}
 		personal_info();
 		document.getElementById('personalInfo').style = 'color: red';
 		if (screen.width > 720) {
@@ -327,12 +334,7 @@
 
 		}
 		function academic_report() {
-			if (screen.width > 720) {
-				window.open('report.html', '_self');
-			}
-			else {
-				window.open('academicreportmobile.html', '_self');
-			}
+			
 			document.getElementById('Homework').style = 'color: #73879C;';
 			document.getElementById('personalInfo').style = 'color: #73879C;';
 			document.getElementById('academicReport').style = 'color:red;';

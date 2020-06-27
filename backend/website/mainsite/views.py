@@ -48,3 +48,20 @@ def complab(request):
 def hostel(request):
 	return render(request, 'mainsite/hostel.html')
 	
+
+def login(request):
+	return render(request, 'mainsite/personalInfo.html')
+
+def personalInfo(request):
+	return render(request, 'mainsite/personalInfo.html')
+def homework(request):
+	return render(request, 'mainsite/homework.html')
+def reportlaptop(request):
+	return render(request, 'mainsite/report.html')
+def reportmobile(request):
+	return render(request, 'mainsite/academicreportmobile.html')
+def videolecture(request):
+	return render(request, 'mainsite/videolec.html')
+def feedback(request):
+	return render(request, 'mainsite/feedback.html')
+	

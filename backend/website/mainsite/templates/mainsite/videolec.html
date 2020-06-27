@@ -149,16 +149,15 @@
             <div class="col-md-3">
                 <div id="mySidenav" class="sidenav">
                     <div class="push">
-                        <a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
-                        <h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
-                            Kendra, Latur</h3>
-
-                            <a id="Homework" href="homework.html" onclick=Homework()>Homework</a>
-                        <a id="personalInfo" href="personalInfo.html" onclick=personal_info()>Personal Information</a>
-                        <a id="academicReport" href="#" onclick=academic_report()>Academic Report</a>
-                        <a id="videoLecture" href="videolec.html" onclick=video_lecture()>Video Lectures</a>
-                        <a id="feedback" href="feedback.html" onclick=feedback()>Feedback</a>
-                    </div>
+						<a id="closenav" href="" class="closebtn" onclick="closeNav()">&times;</a>
+						<h3 style="text-align: center;color: white; margin-top: -20px; margin-bottom: 20px;">Deshi
+							Kendra, Latur</h3>
+						<a id="Homework" href="{% url 'homework' %}" onclick=Homework()>Homework</a>
+						<a id="personalInfo" href="{% url 'personalInfo' %}" onclick=personal_info()>Personal Information</a>
+						<a id="academicReport" href="{% url 'academic' %}" onclick=academic_report()>Academic Report</a>
+						<a id="videoLecture" href="{% url 'videolecture' %}" onclick=video_lecture()>Video Lectures</a>
+						<a id="feedback" href="{% url 'feedback' %}" onclick=feedback()>Feedback</a>
+					</div>
                 </div>
                 <span id="opennav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
@@ -252,6 +251,13 @@
 
 
     <script>
+        if (screen.width > 720) {
+			document.getElementById('academicReport').href = '{% url "reportlaptop" %}';
+		}
+		else {
+			document.getElementById('academicReport').href = '{% url "reportmobile" %}';
+						
+		}
         document.getElementById('personalInfo').style = 'color: red';
         video_lecture();
         if (screen.width > 720) {
@@ -288,19 +294,12 @@
 
 		}
 		function academic_report() { 
-			if(screen.width > 720) {
-				window.open('report.html', '_self');
-			}
-			else {
-				window.open('academicreportmobile.html', '_self');
-			}
+           
 			document.getElementById('Homework').style = 'color: #73879C;';
 			document.getElementById('personalInfo').style = 'color: #73879C;';
 			document.getElementById('academicReport').style = 'color:red;';
 			document.getElementById('videoLecture').style = 'color: #73879C;';
 			document.getElementById('feedback').style = 'color: #73879C;';
-
-
 		}
 		function video_lecture() {
 			document.getElementById('Homework').style = 'color: #73879C;';

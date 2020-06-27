@@ -15,5 +15,12 @@ urlpatterns = [
 	path('scilab/', views.scilab, name = 'scilab'),
 	path('complab/', views.complab, name = 'complab'),
 	path('hostel/', views.hostel, name = 'hostel'),
+	path('login/', views.login, name = 'login'),
+	path('personalInfo/', views.login, name = 'personalInfo'),
+	path('homework/', views.homework, name = 'homework'),
+	path('feedback/', views.feedback, name = 'feedback'),
+	path('videolecture/', views.videolecture, name = 'videolecture'),
+	path('reportlaptop/', views.reportlaptop, name = 'reportlaptop'),
+	path('reportmobile/', views.reportmobile, name = 'reportmobile'),
 	
 ]
