@@ -2,7 +2,6 @@
 {% load static %}
 
 <html lang="en">
-
 <head>
 
 	<meta charset="utf-8">
@@ -12,7 +11,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	{% block css %}
 	<style>
 		#notice {
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -209,10 +207,9 @@
 				width: 100%;
 			}
 			
-		  }
+		}
 
 	</style>
-	{% endblock %}
 	<!-- Required meta tags -->
 	
 
@@ -221,7 +218,6 @@
 
 <body style='background: #f1f1f1'>
 	<div class="container">
-		{% block heading %}
 		<div class="heading">
 			<div class="row">
 				<!-- <div class="col-md-3">
@@ -235,8 +231,6 @@
 
 
 		</div>
-		{% endblock %}
-		{% block navbar %}
 
 		<nav id='nav1' class="navbar navbar-expand-lg navbar-dark	 bg-dark">
 			<!--	<a class="navbar-brand" href="#">Welcome</a>   -->
@@ -248,7 +242,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="{% url 'mainsite' %}">Home <span class="sr-only">(current)</span></a>
 					</li>
 
 					<li class="nav-item dropdown">
@@ -257,11 +251,11 @@
 							About us
 						</a>
 						<div class="dropdown-menu " aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="geninfo">General information</a>
-							<a class="dropdown-item" href="sctu">Uniform and School time</a>
+							<a class="dropdown-item" href="{% url 'geninfo' %}">General information</a>
+							<a class="dropdown-item" href="{% url 'sctu' %}">Uniform and School time</a>
 
-							<a class="dropdown-item" href="infra">Infrastructure</a>
-							<a class="dropdown-item" href="prmsg">Message from principle</a>
+							<a class="dropdown-item" href="{% url 'infra' %}">Infrastructure</a>
+							<a class="dropdown-item" href="{% url 'prmsg' %}">Message from principle</a>
 
 
 						</div>
@@ -273,20 +267,20 @@
 							Admission
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="procedure">Procedure</a>
-							<a class="dropdown-item" href="age">Age limit</a>
+							<a class="dropdown-item" href="{% url 'procedure' %}">Procedure</a>
+							<a class="dropdown-item" href="{% url 'age' %}">Age limit</a>
 
 
 						</div>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="achivements.html" id="navbarDropdown" role="button"
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
 							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Achievements
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="academic">Academic</a>
-							<a class="dropdown-item" href="others">Others</a>
+							<a class="dropdown-item" href="{% url 'academic' %}">Academic</a>
+							<a class="dropdown-item" href="{% url 'others' %}">Others</a>
 
 
 						</div>
@@ -298,11 +292,11 @@
 							Resources
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="lib">Library</a>
-							<a class="dropdown-item" href="scilab">Science Lab</a>
+							<a class="dropdown-item" href="{% url 'lib' %}">Library</a>
+							<a class="dropdown-item" href="{% url 'scilab' %}">Science Lab</a>
 
-							<a class="dropdown-item" href="complab">Computer Lab</a>
-							<a class="dropdown-item" href="hostel"> Hostel </a>
+							<a class="dropdown-item" href="{% url 'complab' %}">Computer Lab</a>
+							<a class="dropdown-item" href="{% url 'hostel' %}"> Hostel </a>
 
 						</div>
 					</li>
@@ -310,7 +304,6 @@
 			</div>
 		</nav>
 
-		{% endblock %}
 		<div class="events my-4">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -484,7 +477,7 @@
 
 
 
-		{% block footer %}
+		
 		<div id="ctl00_dvfooter" style="background-color: #333;">
 			<footer>
 				<div class="ft-border-bottom">
@@ -567,7 +560,7 @@
 
 			</footer>
 		</div>
-		{% endblock %}
+		
 	</div>
 
 
