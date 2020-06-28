@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+# from .models import Student
 
 # Create your views here.
 def index(request):
@@ -64,4 +65,25 @@ def videolecture(request):
 	return render(request, 'mainsite/videolec.html')
 def feedback(request):
 	return render(request, 'mainsite/feedback.html')
+	
+def update(request):
+	
+	# if request.method == 'POST':
+    #     name = request.POST['name']
+    #     mis = request.POST['mis']
+    #     std = request.POST['std']
+    #     divison = request.POST['divison']
+    #     doa = request.POST['doa']
+    #     fatherName = request.POST['fatherName']
+    #     fatherOccupation = request.POST['fatherOccupation']
+    #     motherName = request.POST['motherName']
+    #     motherOccupation = request.POST['motherOccupation']
+    #     parentContact1 = request.POST['parentContact1']
+    #     parentContact2 = request.POST['parentContact2']
+    #     temporaryAddress = request.POST['temporaryAddress']
+    #     parmenantAddress = request.POST['parmenantAddress']
+    #     studentContact = request.POST['studentContact']
+    # else:
+		return render(request, 'mainsite/update.html')
+
 	

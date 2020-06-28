@@ -22,5 +22,6 @@ urlpatterns = [
 	path('videolecture/', views.videolecture, name = 'videolecture'),
 	path('reportlaptop/', views.reportlaptop, name = 'reportlaptop'),
 	path('reportmobile/', views.reportmobile, name = 'reportmobile'),
+	path('update/', views.update, name = 'update'),
 	
 ]
