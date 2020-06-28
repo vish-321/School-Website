@@ -1,9 +1,12 @@
 from django.shortcuts import render, HttpResponse
+from .models import Notice
 # from .models import Student
 
 # Create your views here.
 def index(request):
-	return render(request, 'mainsite/index.html')
+	notices = Notice.objects.all()
+	parameters = {'notices' : notices}
+	return render(request, 'mainsite/index.html', parameters)
 	# return HttpResponse('Hello')
 
 
@@ -86,4 +89,5 @@ def update(request):
     # else:
 		return render(request, 'mainsite/update.html')
 
-	
+def results(request):
+	return render(request, 'mainsite/index.html')
