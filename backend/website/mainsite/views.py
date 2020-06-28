@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from .models import Notice
 # from .models import Student
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
@@ -90,4 +91,6 @@ def update(request):
 		return render(request, 'mainsite/update.html')
 
 def results(request):
-	return render(request, 'mainsite/index.html')
+	# return render(request, 'mainsite/results.html')
+	
+	return render(request, 'results.html')

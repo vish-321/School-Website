@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<style>
 		#notice {
 			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -199,6 +199,9 @@
 				background: black!important;
 			}
 		}
+		#nav2 a:hover {
+			cursor: pointer;
+		}
 			
 		@media only screen and (orientation: portrait) {
 			.box-1 {
@@ -209,6 +212,58 @@
 			}
 			
 		}
+
+
+
+
+
+
+
+
+		#hnews	a:link {
+			color: rgb(49, 49, 49);
+		}
+
+		/* visited link */
+		#hnews a:visited {
+			color: rgb(49, 49, 49)ack;
+		}
+
+		/* mouse over link */
+		#hnews a:hover {
+			color: red;
+		}
+
+		/* selected link */
+		#hnews	a:active {
+			color: yellow;
+		}
+        
+       #hnews {
+          border-bottom: 1px solid #ddd;
+         
+          padding-bottom: 10px;
+          width: 100%;
+         
+       }
+
+      
+
+
+       
+
+        #hnews h3 {
+			font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+        #hnews img {
+            height: 200px;
+            width: 40%;
+            margin-bottom: 2px;
+            margin-right: 4px;
+            margin-top: 2px;
+        }
+
 
 	</style>
 	<!-- Required meta tags -->
@@ -413,24 +468,24 @@
 						</button>
 						<div class="collapse navbar-collapse" id="navbarNav">
 							<ul class="navbar-nav">
-								<li class="nav-item active">
-									<a id='notices' class="nav-link" href="notices">Notices <span
+								<li id='noticesnav' class="nav-item active">
+									<a  class="nav-link" onclick=notices()>Notices <span
 											class="sr-only">(current)</span></a>
 								</li>
-								<li class="nav-item">
-									<a id="results" class="nav-link" href="results">Results</a>
+								<li id="resultsnav" class="nav-item">
+									<a class="nav-link" onclick=results()>Results</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="news">News</a>
+								<li id="newsnav" class="nav-item">
+									<a class="nav-link" onclick=news()>News</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="location">Location</a>
+								<li id="locationnav" class="nav-item">
+									<a class="nav-link" onclick=location1()>Location</a>
 								</li>
 
 							</ul>
 						</div>
 					</nav>
-					<div id="change">
+					<div id="notices">
 						<marquee loop=1000 behavior="slide" direction="left" bgcolor='#f1f1f1'>Schools Resuming at 1 July.
 							Students are requested to wear masks.</marquee>
 
@@ -463,20 +518,215 @@
 						</table>
 
 					</div>
-					<script>
-						$('#results').click(function () {
-							$.ajax({
-							  url: '{% url "results" %}',
-							  data: {
+					
+					<div id="results" style="display: none">
+
+
+						<h3 style="font-weight: bold;font-family: Arial, Helvetica, sans-serif; text-shadow: 1px 1px 1px black;">100 students scored 90+. 6 students got <span style="color: red">100 / 100%</span>. Total result was <span style="color: red">99%</span>.</h3>
+                    <div class="form-group">
+                        
+                        <select class="form-control" id="sel1" >
+                          <option></span>2019-20</option>
+                          <option>2018-19</option>
+                          <option>2017-18</option>
+                          <option>2016-17</option>
+                          <option>2015-16</option>
+                        </select>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                        
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                        
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;"><span style="color: black;">Roshan Bangar</span></span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                         <div class="col-md-4">
+                            <figure>
+                                <img src="/media/mainsite/images/passport.jpg" alt="Trulli" style="width: 200px; height: 200px;;">
+                                <figcaption><span style="color: black;">Roshan Bangar</span><br>100/100%</figcaption>
+                            </figure>
+                         </div>
+                        
+                    </div>
+                    <div class = 'row' style="margin-top: 20px;;">
+                        <table class="table table-bordered table-responsive">
+                            <tr>
+                                <th scope = 'row' class="active">1</th>
+                                <th scope = 'row'>2</th>
+                                <th scope = 'row'>3</th>
+                                <th scope = 'row'>4</th>
+                                <th scope = 'row'>5</th>
+                                <th scope = 'row'>6</th>
+                                <th scope = 'row'>7</th>
+                                <th scope = 'row'>8</th>
+                                <th scope = 'row'>9</th>
+                                <th scope = 'row'>10</th>
+                                <th scope = 'row'>11</th>
+                                <th scope = 'row'>12</th>
+                                <th scope = 'row' style="padding: 0px 20px;"><sub>>></sub></th>
+                            </tr>
+                            
+                        </table>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+				
+
+
+
+
+
+					<div id='news1' style="display: none">
+						<div id="hnews">
+							<h3>
+							   <a href="nn1.html">
+								English teacher  S.B Swami sir awarded with "Award of Excellence " by respected 
+								MLA of latur 
+								shri Amitbhaiya Deshmukh
+							   </a>
+							</h3>
+							<img src="/media/mainsite/images/award2.jpg" alt="image here" >
+							<img src="/media/mainsite/images/n12.jpg" alt="image here" >
+						   
+						</div>
+	
+						<div id="hnews">
+							<h3>
+							   <a href="nn2.html">
+								Deshikendra Vidyalaya hosts district level science exhibition
 								
-							  },
-							  //dataType: 'html',
-							  success: function (data) {
-								$("#change").innerhtml(data);
-							  }
-						});
-						
-						</script>
+							   </a>
+							</h3>
+							<img src="/media/mainsite/images/n27.jpg" alt="image here" >
+							<img src="/media/mainsite/images/n28.jpg" alt="image here" >
+							<img src="/media/mainsite/images/n22.jpg" alt="image here" >
+						   
+						</div>
+
+
+					</div>
+					<div id='location1' style=" display: none;">
+						<center>
+							<p style="padding-top: 20; ">
+							<h3> <b>Location <br></b>
+							</h3>
+	
+							Signal Camp,
+							Latur <br>
+							Maharashtra <br>
+							India-413512
+							</p>
+	
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3785.9097542115933!2d76.56783251478122!3d18.39695798748114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcf83c03c0e6d63%3A0xbfb0b92a9ecd8fdf!2sShri%20Deshikendra%20High%20School!5e0!3m2!1sen!2sin!4v1592737555331!5m2!1sen!2sin"
+								width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+								aria-hidden="false" tabindex="0">
+							</iframe>
+						</center>
+					</div>
+					<script>
+						function notices() {
+							document.getElementById('noticesnav').style = 'color: black;'
+							document.getElementById('noticesnav').classList.add('active');
+							document.getElementById('resultsnav').classList.remove('active');
+							document.getElementById('newsnav').classList.remove('active');
+							document.getElementById('locationnav').classList.remove('active');
+							document.getElementById('notices').style = 'display:block';
+							document.getElementById('results').style = 'display:none';
+							document.getElementById('news1').style = 'display:none';
+							document.getElementById('location1').style = 'display:none';
+						}
+						function results() {
+							document.getElementById('noticesnav').classList.remove('active');
+							document.getElementById('resultsnav').classList.add('active');
+							document.getElementById('newsnav').classList.remove('active');
+							document.getElementById('locationnav').classList.remove('active');
+							document.getElementById('notices').style = 'display:none';
+							document.getElementById('results').style = 'display:block';
+							document.getElementById('news1').style = 'display:none';
+							document.getElementById('location1').style = 'display:none';
+						}
+						function news() {
+							document.getElementById('noticesnav').classList.remove('active');
+							document.getElementById('resultsnav').classList.remove('active');
+							document.getElementById('newsnav').classList.add('active');
+							document.getElementById('locationnav').classList.remove('active');
+							document.getElementById('newsnav').style = 'color: black;'
+
+							document.getElementById('notices').style = 'display:none';
+							document.getElementById('results').style = 'display:none';
+							document.getElementById('news1').style = 'display:block';
+							document.getElementById('location1').style = 'display:none';
+						}
+						function location1() {
+							document.getElementById('noticesnav').classList.remove('active');
+							document.getElementById('resultsnav').classList.remove('active');
+							document.getElementById('newsnav').classList.remove('active');
+							document.getElementById('locationnav').classList.add('active');
+							
+
+							document.getElementById('notices').style = 'display:none';
+							document.getElementById('results').style = 'display:none';
+							document.getElementById('news1').style = 'display:none';
+							document.getElementById('location1').style = 'display:block';
+						}
+					</script>
+
+
 				</div>
 			</div>
 		</div>
@@ -576,6 +826,7 @@
 	</center> -->
 	<div id="credits">© 2020 All rights reserved</div>
 	</div>
+	
 </body>
 
 
