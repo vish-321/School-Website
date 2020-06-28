@@ -6,6 +6,6 @@ class Notice(models.Model):
 	heading = models.CharField(max_length=100)
 	subheading = models.TextField(default='')
 	description = models.TextField(default='')
-	pdf = models.ImageField(upload_to='pdf', default='')
+	pdf = models.FileField(upload_to='pdf', default='')
 	datePublished = models.DateTimeField(auto_now=True)
 	# offer = models.BooleanField(default=False)
