@@ -1,5 +1,5 @@
 from django.contrib import admin
-# from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import Notice, School, Year, Student
 from django.contrib.auth.models import User
@@ -7,12 +7,6 @@ from django.contrib.auth.models import User
 # Register your models here.
 # Register your models here.
 
-# class StudentAdmin(UserAdmin):
-# 	list_display = ('studentname', )
-# 	search_fields = ('studentname', )
-# 	filter_horizontal = ()
-# 	list_filter = ()
-# 	fieldsets = ()
 
 admin.site.register(School)
 admin.site.register(Notice)
@@ -20,7 +14,14 @@ admin.site.register(Notice)
 # admin.site.register(Divison)
 admin.site.register(Year)
 # admin.site.register(Student, StudentAdmin)
-# admin.site.register(Student)
+class StudentAdmin(UserAdmin):
+	ordering = ('studentname',)
+	list_display = ('studentname', 'standard', 'divison', )
+	search_fields = ('studentname', 'standard', 'divison', )
+	filter_horizontal = ()
+	list_filter = ()
+	fieldsets = ()
+admin.site.register(Student, StudentAdmin)
 
 
 
@@ -32,7 +33,7 @@ class StudentInline(admin.StackedInline):
     model = Student
     can_delete = False
     verbose_name_plural = 'Students'
-
+    
 # Define a new User admin
 class UserAdmin(BaseUserAdmin):
     inlines = (StudentInline,)

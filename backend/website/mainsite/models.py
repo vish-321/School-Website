@@ -34,7 +34,7 @@ class Student(models.Model):
         (int(9), '9th'),
         (int(10), '10th'),
     ]
-	standardname = models.IntegerField(choices=YEAR_CHOICES,default=5)
+	standard = models.IntegerField(choices=YEAR_CHOICES,default=5)
 	DIV_CHOICES = [
         ('A', 'A'),
         ('B', 'B'),
@@ -43,6 +43,28 @@ class Student(models.Model):
         ('E', 'E'),
         ('F', 'F')
     ]
-	divisonname = models.CharField(max_length=1,choices=DIV_CHOICES,default='A')
+	divison = models.CharField(max_length=1,choices=DIV_CHOICES,default='A')
 	def __str__(self):
-		return self.studentname + ' (' + str(self.standardname) + ' ' + self.divisonname + ')' 
+		return self.studentname + ' (' + str(self.standard) + ' ' + self.divison + ')' 
+
+
+class Result(models.Model):
+	EXAM_CHOICES = [
+        ('unit_test_1', 'Unit test 1'),
+        ('unit_test_2', 'Unit test 2'),
+        ('semister_1', 'Semister 1'),
+        ('unit_test_3', 'Unit test 3'),
+        ('unit_test_4', 'Unit test 4'),
+        ('semister_2', 'Semister 2'),
+    ]
+	exam = models.CharField(choices=EXAM_CHOICES,default='Semister 1', max_length=20)
+	def __str__(self):
+		return self.exam
+
+class Subject(models.Model):
+	result = models.ForeignKey(Result, on_delete=models.CASCADE,default='Semister_1')
+	name = models.CharField(default='', max_length=15)
+	obtained_marks=models.IntegerField(default=0)
+	total_marks=models.IntegerField(default=0)
+	def __str__(self):
+		return self.name
