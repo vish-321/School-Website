@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .models import Notice, School, Year, Student
+from .models import Notice, School, Year, Student, Result, Subject
 from django.contrib.auth.models import User
 
 # Register your models here.
@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 
 
 admin.site.register(School)
+admin.site.register(Result)
+admin.site.register(Subject)
 admin.site.register(Notice)
 # admin.site.register(Standard)
 # admin.site.register(Divison)
