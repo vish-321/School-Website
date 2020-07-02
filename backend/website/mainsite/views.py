@@ -107,10 +107,10 @@ def reportlaptop(request):
 			return render(request, 'mainsite/report.html', {'error_message': error_message, 'hide': 'display: none;', 'class': class1, 'term': term})
 		else : 
 			students = Student.objects.filter(standard=request.user.student.standard)
-			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam, standard=class1)
 			school_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
 			students = Student.objects.filter(standard=request.user.student.standard, divison=request.user.student.divison)
-			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam, standard=class1)
 			your_marks = final[len(final) - 1].Total_obtained_marks			
 			class_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
 			return render(request, 'mainsite/report.html', {'result': final, 'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks, 'class': class1, 'term': term})
@@ -134,47 +134,47 @@ def subjectAnalysis(request):
 	final = request.user.student.result_set.filter(standard=class1, term=term)
 
 	if len(final) == 0: 
-		return render(request, 'mainsite/report.html', {'error_message': error_message, 'hide': 'display: none;', 'class': class1, 'term': term})
+		JsonResponse({'error': 'No data found'})
 	else : 
 		students = Student.objects.filter(standard=request.user.student.standard)
-		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam, standard= class1)
 		school_topper = results.aggregate(Max(subject))[subject + '__max']
 		students = Student.objects.filter(standard=request.user.student.standard, divison=request.user.student.divison)
-		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam, standard=class1)
 		your_marks = request.user.student.result_set.get(term=term, standard=class1, exam=final[len(final) - 1].exam)
 		your_marks = getattr(your_marks, subject)
 		print(your_marks)
 		class_topper = results.aggregate(Max(subject))[subject + '__max']
 		# return render(request, 'mainsite/report.html', {'result': final, 'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks, 'class': class1, 'term': term})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	data = {
-		'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks
-	}
-	return JsonResponse(data)
+		data = {
+			'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks
+		}
+		return JsonResponse(data)
 			
 def reportmobile(request):
-	return render(request, 'mainsite/academicreportmobile.html')
+	if request.method == 'GET':
+		return render(request, 'mainsite/academicreportmobile.html', {'hide': 'display: None;', 'class': 10, 'term': 1})
+	else :
+		result1 = []
+		class1 = int(request.POST['class'])
+		term = int(request.POST['term'])
+		error_message = 'No Records Found'
+		final = request.user.student.result_set.filter(standard=class1, term=term)
+		
+		if len(final) == 0: 
+			return render(request, 'mainsite/academicreportmobile.html', {'error_message': error_message, 'hide': 'display: none;', 'class': class1, 'term': term})
+		else : 
+			print('hre')
+			students = Student.objects.filter(standard=request.user.student.standard)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam,  standard=class1)
+			school_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
+			students = Student.objects.filter(standard=request.user.student.standard, divison=request.user.student.divison)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+			your_marks = final[len(final) - 1].Total_obtained_marks			
+			class_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
+			return render(request, 'mainsite/academicreportmobile.html', {'result': final, 'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks, 'class': class1, 'term': term})
+
+
 def videolecture(request):
 	return render(request, 'mainsite/videolec.html')
 def feedback(request):

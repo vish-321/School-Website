@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<title>Welcome</title>
 	<style>
@@ -154,31 +155,35 @@
 
 
 					<div class="specialclass col-md-7">
+						<form method="POST" action="{% url 'reportmobile' %}">
+							{% csrf_token %}
 						<span>
 							<div class="col-md-3">
 								<p>Select Class :</p>
-								<select class="form-control" id="sel1">
+								<select class="form-control" name="class">
 		
 									<option> 10</option>
 									<option>9</option>
 									<option>8</option>
 									<option>7</option>
 									<option>6</option>
+									<option>5</option>
 								</select>
 							</div>
 							<div class="col-md-4">
 								<p>Select Term:</p>
-								<select class="form-control" id="sel1">
-									<option>First</option>
-									<option>Second</option>
+								<select class="form-control" id="sel1" name="term">
+									<option value=1>First</option>
+									<option value=2>Second</option>
 								</select>
 							</div>
-							<div class="col-md-4">
-								<button type="submit">Submit</button>
+							<div class="col-md-2" style="width: 110px;margin: 0 auto; margin-top: 20px;">
+								<button class="form-control" type="submit">Submit</button>
 							</div>
 						</span>
-						
-						<h3>Unit Test 1</h3>
+					</form>
+					{% for i in result %}
+						<h3>{{i.exam}}</h3>
 						<table class="table table-bordered">
 							
 							<tr>
@@ -197,214 +202,69 @@
 								</th>
 								
 		
-								<td></td>
-								<td></td>
+								<td> {{i.Mathematics}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 								
 							</tr>
 							<tr>
 								<th>
-									History
+									Social Science
 								</th>
-								<td></td>
-								<td></td>
+								<td>{{i.SocialScience}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 								
 								
 							</tr>
 							<tr>
 								<th>
-									Geography
+									Hindi
 								</th>
-								<td></td>
-								<td></td>
+								<td>{{i.Hindi}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 								
 							</tr>
 							<tr>
 								<th>
 									English
 								</th>
-								<td></td>
-								<td></td>
+								<td>{{i.English}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 								
 							</tr>
 							<tr>
 								<th>
 									Science
 								</th>
-								<td></td>
-								<td></td>
+								<td> {{i.Science}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 								
 							</tr>
 							<tr>
 								<th>
-									Sanskrit
+									Marathi
 								</th>
-								<td></td>
-								<td></td>
+								<td>{{i.Marathi}}</td>
+								<td>{{i.Maximum_marks_for_each_subject}}</td>
 
+							</tr>
+							<tr>
+								<th>
+									Total
+								</th>
+								<td>{{i.Total_obtained_marks}}</td>
+								<td>{{i.Total_maximum_marks}}</td>
 							</tr>
 		
 						</table>
 
-						
+						{% endfor %}
 					
-						<h3>Unit Test 2</h3>
-						<table class="table table-bordered">
-							
-							<tr>
-								<th>
-									Subject
-								</th>
-								<th>Marks Obtained</th>
-								<th>Maximum Marks</th>
-		
-								
-								
-							</tr>
-							<tr>
-								<th>
-									Mathematics
-								</th>
-								
-		
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									History
-								</th>
-								<td></td>
-								<td></td>
-								
-								
-							</tr>
-							<tr>
-								<th>
-									Geography
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									English
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									Science
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									Sanskrit
-								</th>
-								<td></td>
-								<td></td>
+						
 
-							</tr>
-		
-						</table>
-
-						<h3>Semister</h3>
-						<table class="table table-bordered">
-							
-							<tr>
-								<th>
-									Subject
-								</th>
-								<th>Marks Obtained</th>
-								<th>Maximum Marks</th>
-		
-								
-								
-							</tr>
-							<tr>
-								<th>
-									Mathematics
-								</th>
-								
-		
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									History
-								</th>
-								<td></td>
-								<td></td>
-								
-								
-							</tr>
-							<tr>
-								<th>
-									Geography
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									English
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									Science
-								</th>
-								<td></td>
-								<td></td>
-								
-							</tr>
-							<tr>
-								<th>
-									Sanskrit
-								</th>
-								<td></td>
-								<td></td>
-
-							</tr>
-		
-						</table>
+						
 		
 		
-		
-						<div class="sel" style="margin-bottom: 100px;">
-							<span>
-								<div class="col-md-3">
-									<p>Select Class :</p>
-									<select class="form-control" id="sel1">
-			
-										<option> 10</option>
-										<option>9</option>
-										<option>8</option>
-										<option>7</option>
-										<option>6</option>
-									</select>
-								</div>
-								<div class="col-md-4">
-									<p>Select Term:</p>
-									<select class="form-control" id="sel1">
-										<option>First</option>
-										<option>Second</option>
-									</select>
-								</div>
-							</span>
-						</div>
+						
 		
 
 
@@ -425,98 +285,163 @@
 
 
 					<div class="chart col-md-6">
-						<canvas id="myChart" style="width: 200px; height: 200px;"></canvas>
-						<script>
-						var ctx = document.getElementById('myChart').getContext('2d');
-						var myChart = new Chart(ctx, {
-							type: 'bar',
-							data: {
-								labels: ['You', 'Class Topper', 'School Topper'],
-								datasets: [{
-									label: 'Marks',
-									data: [79, 94, 99],
-									backgroundColor: [
-										'pink',
-										'lightgreen',
-										'lightblue'
-										
-									],
-									borderColor: [
-										'red', 
-										'green', 
-										'blue'
-									],
-									borderWidth: 1, 
-									width: 2
-								}]
-							},
-							options: {
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true
-										}
-									}], 
-									xAxes: [{
-										// Change here
-										barPercentage: 0.5, 
-										
-									}], 
+						<canvas id="myChart" style="width: 200px; height: 200px;{{hide}}"></canvas>
+					<script>
+					var ctx = document.getElementById('myChart').getContext('2d');
+					var myChart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: ['You', 'Class Topper', 'School Topper'],
+							datasets: [{
+								label: 'Marks',
+								data: [{{your_marks}}, {{class_topper}}, {{school_topper}}],
+								backgroundColor: [
+									'pink',
+									'lightgreen',
+									'lightblue'
 									
-								}
+								],
+								borderColor: [
+									'red', 
+									'green', 
+									'blue'
+								],
+								borderWidth: 1, 
+								width: 2
+							}]
+						},
+						options: {
+							scales: {
+								yAxes: [{
+									ticks: {
+										beginAtZero: true
+									}
+								}], 
+								xAxes: [{
+									// Change here
+									barPercentage: 0.5, 
+									
+								}], 
+								
 							}
-						});
-						</script>
+						}
+					});
+					</script>
+					</div>
+	
+	
+					<div class="chart col-md-6" style="margin-top: 50px;{{hide}}">
+						<h5 style="margin-top: 10px">Select Subject for analysis</h5>
+						<h5 id="nodata"></h5>
+						<div class="col-md-7">
+						<select class="form-control" name="sub" id="sub">
+							<option value="Mathematics">Mathematics</option>
+							<option value="Science">Science</option>
+							<option value="SocialScience">Social Science</option>
+							<option value="Marathi">Marathi</option>
+							<option value="Hindi">Hindi</option>
+							<option value="English">English</option>
+						</select>
+					</div>
+					<div class="col-md-5">
+						<button id="getdata" class="form-control btn btn-info" type="submit" style="margin-top: 20px;width: 110px;margin-left: 60px;">Submit</button>
 					</div>
 	
 	
 	
 	
-	
-	
-	
 					<div class="chart col-md-6">
-						<canvas id="myChart2" style="width: 200px; height: 200px;"></canvas>
-						<script>
-						var ctx = document.getElementById('myChart2').getContext('2d');
-						var myChart2 = new Chart(ctx, {
-							type: 'bar',
-							data: {
-								labels: ['You', 'Class Topper', 'School Topper'],
-								datasets: [{
-									label: 'Marks',
-									data: [79, 94, 99],
-									backgroundColor: [
-										'pink',
-										'lightgreen',
-										'lightblue'
-										
-									],
-									borderColor: [
-										'red', 
-										'green', 
-										'blue'
-									],
-									borderWidth: 1, 
-								}]
-							},
-							options: {
-								scales: {
-									yAxes: [{
-										ticks: {
-											beginAtZero: true
-										}
-									}], 
-									xAxes: [{
-										// Change here
-										barPercentage: 0.5, 
-										
-									}], 
-									
-								}
-							}
-						});
-						</script>
+						<canvas id="myChart1" style="width: 200px; height: 200px;{{hide}}"></canvas>
+                <script>
+                    var yourmarks, schooltopper, classtopper;
+                    $("#getdata").click(function () {
+                        var subject = $('#sub').val();
+                        var std = {{class}}
+                        var term = {{term}}
+                        $.ajax({
+                          url: '{% url "subjectAnalysis" %}',
+                          data: {
+                            'subject': subject,
+                            'standard': std, 
+                            'term': term
+                          },
+                          dataType: 'json',
+                          success: function (data) {
+                            if (data.error) {
+                              document.getElementById('nodata').innerHTML=data.error_message;
+                            }
+                            yourmarks = data.your_marks
+                            schooltopper = data.school_topper
+                            classtopper = data.class_topper
+                          }
+                        });
+
+
+                        var ctx = document.getElementById('myChart1').getContext('2d');
+                var myChart1 = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['You', 'Class Topper', 'School Topper'],
+                        datasets: [{
+                            label: 'Marks',
+                            data: [yourmarks, classtopper, schooltopper],
+                            backgroundColor: [
+                                'pink',
+                                'lightgreen',
+                                'lightblue'
+                                
+                            ],
+                            borderColor: [
+                                'red', 
+                                'green', 
+                                'blue'
+                            ],
+                            borderWidth: 1, 
+                            width: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }], 
+                            xAxes: [{
+                                // Change here
+                                barPercentage: 0.5, 
+                                
+                            }], 
+                            
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                      });
+
+
+
+
+
+                      console.log(yourmarks);
+                      console.log('not sure');
+
+                
+                </script>
 	
 
 
@@ -550,7 +475,7 @@
 				<div class="right">
 					<p style="text-align: left; color: #73879C; font-weight: bold;font-size: 1.7rem;" class="m-2">Photo
 					</p>
-					<img src="passport.jpg" class="img-circle" alt="Cinque Terre" width="180" height="180">
+					<img src="/media/{{request.user.student.profile.image}}" class="img-circle" alt="Cinque Terre" width="180" height="180">
 
 					<p style="padding-top: 20px;font-weight: bold;"> Roshan Bangar</p>
 				</div>
