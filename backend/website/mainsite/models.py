@@ -23,12 +23,12 @@ class School(models.Model):
 
 class Year(models.Model):
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
-	yearname = models.CharField(max_length=10, default='')
+	yearname = models.IntegerField(default=2020)
 	def __str__(self):
-		return self.yearname
+		return str(self.yearname)
 class Student(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	year = models.ForeignKey(Year, on_delete=models.CASCADE,default='2018')
+	year = models.ForeignKey(Year, on_delete=models.CASCADE,default=2020)
 	studentname = models.CharField(default='', max_length=50)
 	YEAR_CHOICES = [
         (int(5), '5th'),
@@ -54,13 +54,25 @@ class Student(models.Model):
 
 class Result(models.Model):
 	student = models.ForeignKey(Student, on_delete=models.CASCADE,default='')
-	EXAM_CHOICES = [
-        ('unit_test_1', 'Unit test 1'),
-        ('unit_test_2', 'Unit test 2'),
-        ('semister_1', 'Semister 1'),
-        ('semister_2', 'Semister 2'),
+	YEAR_CHOICES = [
+        (int(5), '5th'),
+        (int(6), '6th'),
+        (int(7), '7th'),
+        (int(8), '8th'),
+        (int(9), '9th'),
+        (int(10), '10th'),
     ]
-	exam = models.CharField(choices=EXAM_CHOICES,default='Semister 1', 
+	standard = models.IntegerField(choices=YEAR_CHOICES,default=5)
+	TERM = [
+		(1, 'First'), 
+		(2, 'Second'),
+	]
+	term = models.PositiveSmallIntegerField(choices=TERM, default=1)
+	EXAM_CHOICES = [
+		('unit test', 'Unit test'), 
+		('semister', 'Semister')
+	]
+	exam = models.CharField(choices=EXAM_CHOICES,default='unit test', 
 	max_length=20)
 	Maximum_marks_for_each_subject = models.IntegerField(default=20)
 	Marathi = models.IntegerField(default=0, blank=True, )
@@ -69,24 +81,27 @@ class Result(models.Model):
 	Mathematics = models.IntegerField(default=0, blank=True, )
 	SocialScience = models.IntegerField(default=0, blank=True, )
 	Science = models.IntegerField(default=0, blank=True, )
-	Drawing = models.IntegerField(default=0, blank=True, )
-	ICT = models.IntegerField(default=0, blank=True, )
-	PE = models.IntegerField(default=0, blank=True, )
+	Total_obtained_marks = models.IntegerField(default=0, blank=True, editable=False)
+	Total_maximum_marks = models.IntegerField(default=0, blank=True, editable=False)
 	def __str__(self):
-		return self.exam
+		return str(self.standard) + ' ' + str(self.term) + ' ' + str(self.exam)
+	def save(self):
+		self.Total_maximum_marks = self.Maximum_marks_for_each_subject * 6
+		self.Total_obtained_marks = self.Marathi + self.Mathematics + self.English + self.SocialScience + self.Science + self.Hindi
+		super().save()
 
 class Tenth_Result(models.Model):
 	year_choices = [
-        ('2020-21', '2020-21'),
-        ('2021-22', '2021-22'),
-        ('2022-23', '2022-23'),
-        ('2023-24', '2023-24'),
-        ('2024-25', '2024-25'),
-        ('2025-26', '2025-26'),
-        ('2026-27', '2026-27'),
+        (2021, '2020-21'),
+        (2022, '2021-22'),
+        (2023, '2022-23'),
+        (2024, '2023-24'),
+        (2025, '2024-25'),
+        (2026, '2025-26'),
+        (2027, '2026-27'),
     ]
 	# year = models.CharField()
-	year = models.CharField(choices=year_choices,default='2020-21', max_length=10, unique=True) 
+	year = models.IntegerField(choices=year_choices,default=2020,unique=True) 
 	heading = models.CharField(max_length=100)
 	username = None
 	USERNAME_FIELD = 'year'
@@ -108,8 +123,8 @@ class Tenth_Topper(models.Model):
 class Profile(models.Model): 
 	student = models.OneToOneField(Student, on_delete=models.CASCADE)
 	date_of_admission = models.DateField()
-	father_name = models.CharField(max_length=20)
-	mother_name = models.CharField(max_length=20)
+	father_name = models.CharField(max_length=40)
+	mother_name = models.CharField(max_length=40)
 	father_occupation = models.CharField(max_length=20)
 	mother_occupation = models.CharField(max_length=20, default='')
 	parent_contact_1 = models.IntegerField(default=1234567890)

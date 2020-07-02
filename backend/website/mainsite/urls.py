@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
 	path('', views.index, name = 'mainsite'),
@@ -27,5 +28,6 @@ urlpatterns = [
     # url(r'^news/$', views.news, name='news'),
     # url(r'^location/$', views.location, name='location'),
     # url(r'^notices/$', views.notices, name='notices'),
+	url(r'^ajax/subjectAnalysis/$', views.subjectAnalysis, name='subjectAnalysis'),
 	
 ]

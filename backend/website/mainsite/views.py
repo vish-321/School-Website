@@ -1,10 +1,14 @@
 from django.shortcuts import render, HttpResponse
 from .models import Notice
-# from .models import Student
+from .models import Student, Year
 from django.http import JsonResponse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, logout, login
-from .models import Homework
+from .models import Homework, Student, Result
+from django.shortcuts import get_object_or_404
+from django.db.models import Max
+from django.http import JsonResponse
+
 
 
 # Create your views here.
@@ -20,6 +24,9 @@ def geninfo(request):
 	return render(request, 'mainsite/geninfo.html')
 	# return HttpResponse('Hello')')
 	# return HttpResponse('Hello')
+
+
+
 
 
 def sctu(request):
@@ -67,7 +74,7 @@ def signin(request):
 		#print(password)
 		user = authenticate(request, username=username, password=password)
 		if user is not None :
-			#print('user is not none')
+			#print('user is not None')
 			login(request, user)
 			return render(request, 'mainsite/personalInfo.html')
 		else :
@@ -85,7 +92,87 @@ def homework(request):
 	param = {'homework' : hw}
 	return render(request, 'mainsite/homework.html', param)
 def reportlaptop(request):
-	return render(request, 'mainsite/report.html')
+	# result = request.user.student.result_set.all()
+	# students = Student.objects.filter(year=)
+	if request.method == 'GET':
+		return render(request, 'mainsite/report.html', {'hide': 'display: None;', 'class': 10, 'term': 1})
+	else :
+		result1 = []
+		class1 = int(request.POST['class'])
+		term = int(request.POST['term'])
+		error_message = 'No Records Found'
+		final = request.user.student.result_set.filter(standard=class1, term=term)
+		
+		if len(final) == 0: 
+			return render(request, 'mainsite/report.html', {'error_message': error_message, 'hide': 'display: none;', 'class': class1, 'term': term})
+		else : 
+			students = Student.objects.filter(standard=request.user.student.standard)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+			school_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
+			students = Student.objects.filter(standard=request.user.student.standard, divison=request.user.student.divison)
+			results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+			your_marks = final[len(final) - 1].Total_obtained_marks			
+			class_topper = results.aggregate(Max('Total_obtained_marks'))['Total_obtained_marks__max']
+			return render(request, 'mainsite/report.html', {'result': final, 'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks, 'class': class1, 'term': term})
+
+
+
+def subjectAnalysis(request):
+	subject = request.GET.get('subject', None)
+	standard = request.GET.get('standard', None)
+	term1 = request.GET.get('term', None)
+
+
+
+
+
+	class1 = int(standard)
+	term = int(term1)
+	# print(class1)
+	# print(term1)
+	error_message = 'No Records Found'
+	final = request.user.student.result_set.filter(standard=class1, term=term)
+
+	if len(final) == 0: 
+		return render(request, 'mainsite/report.html', {'error_message': error_message, 'hide': 'display: none;', 'class': class1, 'term': term})
+	else : 
+		students = Student.objects.filter(standard=request.user.student.standard)
+		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+		school_topper = results.aggregate(Max(subject))[subject + '__max']
+		students = Student.objects.filter(standard=request.user.student.standard, divison=request.user.student.divison)
+		results = Result.objects.filter(student__in=students, exam=final[len(final) - 1].exam)
+		your_marks = request.user.student.result_set.get(term=term, standard=class1, exam=final[len(final) - 1].exam)
+		your_marks = getattr(your_marks, subject)
+		print(your_marks)
+		class_topper = results.aggregate(Max(subject))[subject + '__max']
+		# return render(request, 'mainsite/report.html', {'result': final, 'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks, 'class': class1, 'term': term})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	data = {
+		'school_topper' : school_topper, 'class_topper': class_topper, 'your_marks': your_marks
+	}
+	return JsonResponse(data)
+			
 def reportmobile(request):
 	return render(request, 'mainsite/academicreportmobile.html')
 def videolecture(request):
@@ -117,3 +204,5 @@ def results(request):
 	# return render(request, 'mainsite/results.html')
 	
 	return render(request, 'results.html')
+
+

@@ -24,8 +24,7 @@ class ResultInline(admin.StackedInline):
     model = Result
     can_delete = False
     verbose_name_plural = 'Results'
-
-
+    extra = 0
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -88,6 +87,8 @@ class Tenth_ResultAdmin(admin.ModelAdmin):
 	fieldsets = ()
 	exclude = ()
 	inlines = (Tenth_TopperInline,)
+	extra = 0
+	can_delete = True
 admin.site.register(Tenth_Result, Tenth_ResultAdmin)
 # admin.site.register(Tenth_Result)
 # admin.site.register(Tenth_Topper)
