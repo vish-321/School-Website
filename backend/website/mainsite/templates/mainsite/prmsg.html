@@ -106,6 +106,32 @@
 				background: black!important;
             }
         }
+
+
+
+
+        @media only screen and (orientation: portrait) {
+			.box-1 {
+				width: 100%;
+			}
+			iframe {
+				width: 100%;
+            }
+            .dropdown-menu {
+                background: #333!important;
+                
+            }
+            .dropdown-item:hover {
+                color: red;
+                background: black;
+                color: white;
+            }
+            .dropdown-item {
+                color: #f1f1f1!important;
+            }
+
+			
+        }
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -252,7 +278,7 @@
         <div>
             <div style="background: white;" class="jumbotron">
 
-                <img src="/media/mainsite/images/school.jpg" alt="Library" style="width: 500px; height: 200px;">
+                <img src="/media/mainsite/images/school.jpg" alt="Library" style="width: 500px; height: 200px;" class="img-responsive">
                 <p>
                     I extend a warm welcome to you and your family. I am very proud to be the Principal of this
                     wonderful school. It is a privilege for me to work with our students, our staff and our families to
