@@ -25,6 +25,7 @@ urlpatterns = [
 	path('reportmobile/', views.reportmobile, name = 'reportmobile'),
 	path('update/', views.update, name = 'update'),
 	path('results/', views.results, name='results'),
+	path('logout/', views.signout, name='logout'),
     # url(r'^news/$', views.news, name='news'),
     # url(r'^location/$', views.location, name='location'),
     # url(r'^notices/$', views.notices, name='notices'),

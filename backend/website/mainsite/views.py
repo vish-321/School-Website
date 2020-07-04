@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Notice
 from .models import Student, Year
 from django.http import JsonResponse
@@ -8,11 +8,16 @@ from .models import Homework, Student, Result
 from django.shortcuts import get_object_or_404
 from django.db.models import Max
 from django.http import JsonResponse
+from django.urls import reverse
 
 
 
 # Create your views here.
 def index(request):
+	
+	if request.user.is_authenticated: 
+		return redirect('personalInfo')
+	print('hello')
 	notices = Notice.objects.all()
 	parameters = {'notices' : notices}
 	return render(request, 'mainsite/index.html', parameters)
@@ -76,14 +81,18 @@ def signin(request):
 		if user is not None :
 			#print('user is not None')
 			login(request, user)
-			return render(request, 'mainsite/personalInfo.html')
+			return redirect('personalInfo')
 		else :
 			param = {'error_message': 'Invalid Credentials'}
 			return render(request, 'mainsite/index.html', param)
 	
 	else :
 		#print('method is get')
-		return render(request, 'mainsite/personalInfo.html')
+		return render(request, 'mainsite/index.html')
+
+def signout(request):
+	logout(request)
+	return redirect('mainsite')
 
 def personalInfo(request):
 	return render(request, 'mainsite/personalInfo.html')

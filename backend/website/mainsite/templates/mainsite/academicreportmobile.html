@@ -131,6 +131,7 @@
 						<a id="academicReport" href="{% url 'academic' %}" onclick=academic_report()>Academic Report</a>
 						<a id="videoLecture" href="{% url 'videolecture' %}" onclick=video_lecture()>Video Lectures</a>
 						<a id="feedback" href="{% url 'feedback' %}" onclick=feedback()>Feedback</a>
+						<a id="logout" href="{% url 'logout' %}" onclick=logout()>Log Out</a>
 					</div>
                 </div>
                 <span id="opennav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -539,7 +540,16 @@
             document.getElementById('academicReport').style = 'color: #73879C';
             document.getElementById('videoLecture').style = 'color: #73879C;';
 
-        }
+		}
+		function logout() {
+			document.getElementById('Homework').style = 'color: #73879C;';
+			document.getElementById('personalInfo').style = 'color: #73879C';
+			document.getElementById('feedback').style = 'color: #73879C;';
+			document.getElementById('logout').style = 'color: red;';
+			document.getElementById('academicReport').style = 'color: #73879C';
+			document.getElementById('videoLecture').style = 'color: #73879C;';
+
+		}
     </script>
 </body>
 
