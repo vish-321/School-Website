@@ -1,2 +1,2 @@
-# School-Website
-The Website is designed for the middle school students, parents and teachers which makes it easy to communicate for students and teachers to communicate with each other during the non teaching hours. 
+## School-Website
+The website is designed for middle school students, parents, and teachers, facilitating easy communication between students and teachers during non-teaching hours.
